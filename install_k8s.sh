@@ -120,7 +120,8 @@ done
 
 if [[ ${software_packet} == '' ]];then
 #    curl -C- -fLO --retry 3 https://github.com/easzlab/kubeasz/releases/download/${release}/ezdown
-    curl -C- -fLO --retry 10  https://gitee.com/asianuxchina/kubeasz/raw/${release}/ezdown
+    curl -C- -fLO --retry 3  https://github.91chi.fun//https://github.com/easzlab/kubeasz/releases/download/${release}/ezdown
+
     sed -ri "s+^(K8S_BIN_VER=).*$+\1${k8s_ver}+g" ezdown
     chmod +x ./ezdown
     # 使用工具脚本下载
