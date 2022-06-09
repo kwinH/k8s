@@ -4,14 +4,16 @@
 
 
 # 变量定义
-export release="3.2.0"
-export k8s_ver="v1.23.1"  # v1.20.2, v1.19.7, v1.18.15, v1.17.17
+export release="3.3.0" 
+export k8s_ver="v1.24.1"  # k8s版本
 
-rootpasswd="root"
+clustername="test" #集群名称
+rootpasswd="root" # 集群机器root帐号密码
+
 netnum="172.16.15"
 cri="docker" #[containerd|docker]
 cni="calico" #[calico|flannel]
-clustername="test" #集群名称
+
 isCN=true #服务器是否在中国
 
 if ls -1v ./kubeasz*.tar.gz &>/dev/null;then software_packet="$(ls -1v ./kubeasz*.tar.gz )";else software_packet="";fi
@@ -19,6 +21,7 @@ pwd="/etc/kubeasz"
 
 masterNode=(
     "192.168.1.240"
+    "192.168.1.241"
 )
 
 slaveNode=(
@@ -356,4 +359,3 @@ rm -f $0
 [ -f ${software_packet} ] && rm -f ${software_packet}
 #rm -f ${pwd}/roles/deploy/templates/${USER_NAME}-csr.json.j2
 #sed -ri "s+${USER_NAME}+admin+g" ${pwd}/roles/prepare/tasks/main.yml
-
